@@ -1,36 +1,37 @@
-let idtext = document.getElementById("assetid");
-let aktext = document.getElementById("apikey");
-let prox = document.getElementById("proxy");
+let idtext = document.getElementsByName("assetid");
+let aktext = document.getElementsByName("apikey");
+let prox = document.getElementsByName("proxy");
+let finp = document.getElementsByName("finp");
 let submit = document.getElementById("submit");
 let rw = document.getElementById("switch");
-let finp = document.getElementById("finp");
-let visbool = {
-    [false]: "visible",
-    [true]: "hidden",
-}
 let latest = "0.3"
 
 document.documentElement.style.fontFamily = 'Comic Sans MS';
 
 function rwclicked(){
     let chosen = rw.checked;
-    idtext.parentElement.style.visibility = visbool[chosen];
-    aktext.parentElement.style.visibility = visbool[chosen];
-    prox.parentElement.style.visibility = visbool[chosen];
-    finp.parentElement.style.visibility = visbool[!chosen];
+    let visbool = {
+        [false]: "visible",
+        [true]: "hidden",
+    }
+    hide(idtext.parentElement, visbool[chosen], true);
+    hide(aktext.parentElement, visbool[chosen], true);
+    hide(prox.parentElement, visbool[chosen], true);
+    hide(finp.parentElement, visbool[!chosen], true);
 }
 rwclicked()
 rw.addEventListener("click",rwclicked)
 
-function toggleAttribute(elt, name, bool) {
-    if (bool) {
-        if (!elt.getAttribute(name)) {
-            elt.setAttribute(name, "")
-        }
-    } else {
-        if (elt.getAttribute(name)) {
-            elt.removeAttribute()
-        }
+function hide(elt, visible, parent) { 
+    let disbool = {
+        ["visible"]: "block",
+        ["hidden"]: "none",
+    }
+    let targ = parent ? elt.parentElement : elt
+    targ.style.visibility = visible
+    let brdivider = document.querySelector(`br[for="${elt.getAttribute("name")}"]`)
+    if (brdivider) {
+        brdivider.style.display = disbool[visible]
     }
 }
 function blobtob64(blob) { //didnt make this

@@ -8,36 +8,36 @@
 <body>
     <label>
         asset id:
-        <input id="assetid"
+        <input name="assetid"
                type="text"
                placeholder="ex. 1818" />
     </label>
-    <br /><br />
+    <br for="assetid"/>
     <label>
         api key:
-        <input id="apikey"
+        <input name="apikey"
                type="text"
                placeholder="Open Cloud API key" />
         <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
     </label>
-    <br /><br />
+    <br for="apikey"/>
     <label>
         proxy:
-        <input id="proxy"
+        <input name="proxy"
                type="text"
                placeholder="ex. roproxy.com, leave blank for roblox.com"
                style="width:300px;" />
     </label>
-    <br /><br />
+    <br for="proxy"/>
     <label style="visibility:hidden">
         rbxpack file:
-        <input id="finp"
+        <input name="finp"
                type="text"
                accept=".rbxpack" />
     </label>
-    <br /><br />
+    <br for="finp"/>
     <button id="submit" onclick="enter()">submit</button>
-    <br /><br />
+    <br />
     <label>
         read file:
         <input id="switch"
