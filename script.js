@@ -14,10 +14,10 @@ function rwclicked(){
         [false]: "visible",
         [true]: "hidden",
     }
-    hide(idtext.parentElement, visbool[chosen], true);
-    hide(aktext.parentElement, visbool[chosen], true);
-    hide(prox.parentElement, visbool[chosen], true);
-    hide(finp.parentElement, visbool[!chosen], true);
+    hide(idtext, visbool[chosen], true);
+    hide(aktext, visbool[chosen], true);
+    hide(prox, visbool[chosen], true);
+    hide(finp, visbool[!chosen], true);
 }
 rwclicked()
 rw.addEventListener("click",rwclicked)
