@@ -7,7 +7,7 @@ let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
 let latest = "0.3"
 document.documentElement.style.fontFamily = 'Comic Sans MS';
-overall.addEventListener("click", (e) => {
+rw.addEventListener("click", (e) => {
     let chosen = rw.checked;
     console.log(chosen)
     toggleAttribute(idtext, "hidden", chosen)
