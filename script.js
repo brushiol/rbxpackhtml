@@ -6,10 +6,8 @@ let rw = document.getElementById("switch");
 let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
 let latest = "0.3"
-/*document.addEventListener("DOMContentLoaded", function () {
-    document.documentElement.style.fontFamily = 'Comic Sans MS';
-});*/
-function rwclicked() {
+document.documentElement.style.fontFamily = 'Comic Sans MS';
+overall.addEventListener("click", (e) => {
     let chosen = rw.checked;
     console.log(chosen)
     toggleAttribute(idtext, "hidden", chosen)
@@ -21,8 +19,7 @@ function rwclicked() {
     } else {
  
     }*/
-}
-rw.setAttribute("onclicked","rwclicked()") //grasping at straws atp
+});
 
 function toggleAttribute(elt, name, bool) {
     if (bool) {
