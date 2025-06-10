@@ -24,7 +24,7 @@ function hide(elt, visible, parent) {
         [true]: "block",
         [false]: "none",
     }
-    let targ = elt
+    let targ = elt 
     if (parent && elt.parentElement) {
         targ = elt.parentElement
     }
