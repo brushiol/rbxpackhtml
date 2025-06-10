@@ -19,15 +19,14 @@ rwclicked()
 rw.addEventListener("click",rwclicked)
 
 function hide(elt, visible, parent) { 
+    if (!elt) return
     let disbool = {
         [true]: "block",
         [false]: "none",
     }
-    let targ
+    let targ = elt
     if (parent && elt.parentElement) {
         targ = elt.parentElement
-    } else {
-        targ = elt
     }
     targ.style.display = disbool[visible]
 }
