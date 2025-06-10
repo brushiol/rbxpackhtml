@@ -10,22 +10,18 @@ document.documentElement.style.fontFamily = 'Comic Sans MS';
 
 function rwclicked(){
     let chosen = rw.checked;
-    let visbool = {
-        [false]: "visible",
-        [true]: "hidden",
-    }
-    hide(idtext, visbool[chosen], true);
-    hide(aktext, visbool[chosen], true);
-    hide(prox, visbool[chosen], true);
-    hide(finp, visbool[!chosen], true);
+    hide(idtext, chosen, true);
+    hide(aktext, chosen, true);
+    hide(prox, chosen, true);
+    hide(finp, !chosen, true);
 }
 rwclicked()
 rw.addEventListener("click",rwclicked)
 
 function hide(elt, visible, parent) { 
     let disbool = {
-        ["visible"]: "block",
-        ["hidden"]: "none",
+        [true]: "block",
+        [false]: "none",
     }
     let targ
     if (parent && elt.parentElement) {
@@ -33,11 +29,7 @@ function hide(elt, visible, parent) {
     } else {
         targ = elt
     }
-    targ.style.visibility = visible
-    /*let brdivider = document.querySelector(`br[for="${elt.getAttribute("name")}"]`)
-    if (brdivider) {
-        brdivider.style.display = disbool[visible]
-    }*/
+    targ.style.display = disbool[visible]
 }
 function blobtob64(blob) { //didnt make this
     return new Promise((resolve, reject) => {
