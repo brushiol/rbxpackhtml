@@ -8,6 +8,7 @@ let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
 document.documentElement.style.fontFamily = 'Comic Sans MS';
 rw.addEventListener("click", function () {
+    console.log(true)
     let chosen = rw.checked;
     toggleAttribute(idtext, "hidden")
     toggleAttribute(aktext, "hidden")
