@@ -3,28 +3,24 @@ let aktext = document.getElementById("apikey");
 let prox = document.getElementById("proxy");
 let submit = document.getElementById("submit");
 let rw = document.getElementById("switch");
-let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
+let visbool = {
+    [false]: "visible",
+    [true]: "hidden",
+}
 let latest = "0.3"
 
 document.documentElement.style.fontFamily = 'Comic Sans MS';
 
-rw.addEventListener("click", (e) => {
-    let visibility = {
-        [false]: "visible",
-        [true]: "hidden",
-    }
+function rwclicked(){
     let chosen = rw.checked;
-    idtext.style.visibility = visibility[chosen];
-    aktext.style.visibility = visibility[chosen];
-    prox.style.visibility = visibility[chosen];
-    ficont.style.visibility = visibility[!chosen];
-    /*if (chosen) {
- 
-    } else {
- 
-    }*/
-});
+    idtext.parentElement.style.visibility = visbool[chosen];
+    aktext.parentElement.style.visibility = visbool[chosen];
+    prox.parentElement.style.visibility = visbool[chosen];
+    finp.parentElement.style.visibility = visbool[!chosen];
+}
+rwclicked()
+rw.addEventListener("click",rwclicked)
 
 function toggleAttribute(elt, name, bool) {
     if (bool) {
