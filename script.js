@@ -9,9 +9,9 @@ let latest = "0.3"
 /*document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.style.fontFamily = 'Comic Sans MS';
 });*/
-rw.addEventListener("click", function () {
-    console.log(true)
+function rwclicked() {
     let chosen = rw.checked;
+    console.log(chosen)
     toggleAttribute(idtext, "hidden", chosen)
     toggleAttribute(aktext, "hidden", chosen)
     toggleAttribute(prox, "hidden", chosen)
@@ -21,7 +21,8 @@ rw.addEventListener("click", function () {
     } else {
  
     }*/
-});
+}
+rw.setAttribute("onclicked","rwclicked()") //grasping at straws atp
 
 function toggleAttribute(elt, name, bool) {
     if (bool) {
