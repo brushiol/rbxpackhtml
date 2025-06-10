@@ -6,14 +6,16 @@ let rw = document.getElementById("switch");
 let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
 let latest = "0.3"
+
 document.documentElement.style.fontFamily = 'Comic Sans MS';
+
 rw.addEventListener("click", (e) => {
     let chosen = rw.checked;
     console.log(chosen)
     toggleAttribute(idtext, "hidden", chosen)
     toggleAttribute(aktext, "hidden", chosen)
     toggleAttribute(prox, "hidden", chosen)
-    toggleAttribute(ficont, "hidden", chosen)
+    toggleAttribute(ficont, "hidden", !chosen)
     /*if (chosen) {
  
     } else {
