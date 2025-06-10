@@ -10,12 +10,15 @@ let latest = "0.3"
 document.documentElement.style.fontFamily = 'Comic Sans MS';
 
 rw.addEventListener("click", (e) => {
+    let visibility = {
+        [false]: "visible",
+        [true]: "hidden",
+    }
     let chosen = rw.checked;
-    console.log(chosen)
-    toggleAttribute(idtext, "hidden", chosen)
-    toggleAttribute(aktext, "hidden", chosen)
-    toggleAttribute(prox, "hidden", chosen)
-    toggleAttribute(ficont, "hidden", !chosen)
+    idtext.style.visibility = visibility[chosen];
+    aktext.style.visibility = visibility[chosen];
+    prox.style.visibility = visibility[chosen];
+    ficont.style.visibility = visibility[!chosen];
     /*if (chosen) {
  
     } else {
