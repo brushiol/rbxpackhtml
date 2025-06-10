@@ -1,8 +1,31 @@
+let latest = "0.3"
 let idtext = document.getElementById("assetid");
 let aktext = document.getElementById("apikey");
 let prox = document.getElementById("proxy");
 let submit = document.getElementById("submit");
+let rw = document.getElementById("switch");
+let ficont = document.getElementById("ficont");
+let finp = document.getElementById("finp");
 document.documentElement.style.fontFamily = 'Comic Sans MS';
+rw.addEventListener("click", function () {
+    let chosen = rw.checked;
+    toggleAttribute(idtext, "hidden")
+    toggleAttribute(aktext, "hidden")
+    toggleAttribute(prox, "hidden")
+    toggleAttribute(ficont, "hidden")
+    /*if (chosen) {
+
+    } else {
+
+    }*/
+});
+function toggleAttribute(elt,name) {
+    if (elt.getAttribute(name)) {
+        elt.removeAttribute()
+    } else {
+        elt.setAttribute(name, "")
+    }
+}
 function blobtob64(blob) { //didnt make this
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -12,67 +35,73 @@ function blobtob64(blob) { //didnt make this
     });
 }
 async function enter() {
-    let assetid = idtext.value;
-    let apikey = aktext.value;
-    let proxy = prox.value;
+    let chosen = rw.checked;
+    if (!chosen) {
+        let assetid = idtext.value;
+        let apikey = aktext.value;
+        let proxy = prox.value;
 
-    if (!assetid) {
-        alert("an asset id is required.");
-        return;
-    }
-    if (!apikey) {
-        alert("an api key is required.");
-        return;
-    }
+        if (!assetid) {
+            alert("an asset id is required.");
+            return;
+        }
+        if (!apikey) {
+            alert("an api key is required.");
+            return;
+        }
 
-    let asseturl = `https://apis.${proxy}/asset-delivery-api/v1/assetId/${assetid}`;
-    let infourl = `https://economy.${proxy}/v2/assets/${assetid}/details`;
+        let asseturl = `https://apis.${proxy}/asset-delivery-api/v1/assetId/${assetid}`;
+        let infourl = `https://economy.${proxy}/v2/assets/${assetid}/details`;
 
-    try {
-        let assetidresponse = await fetch(asseturl, {
-            headers: {
-                "x-api-key": apikey,
-            },
-        });
-        if (!assetidresponse.ok) throw new Error(assetidresponse.status);
+        try {
+            let assetidresponse = await fetch(asseturl, {
+                headers: {
+                    "x-api-key": apikey,
+                },
+            });
+            if (!assetidresponse.ok) throw new Error(assetidresponse.status);
 
-        let assetjson = await assetidresponse.json();
-        if (!assetjson.location)
-            throw new Error("location url missing in asset response");
+            let assetjson = await assetidresponse.json();
+            if (!assetjson.location)
+                throw new Error("location url missing in asset response");
 
-        let assetresponse = await fetch(assetjson.location);
-        if (!assetresponse.ok) throw new Error("failed to download asset");
+            let assetresponse = await fetch(assetjson.location);
+            if (!assetresponse.ok) throw new Error("failed to download asset");
 
-        let ablob = await assetresponse.blob();
-        let base64 = await blobtob64(ablob);
+            let ablob = await assetresponse.blob();
+            let base64 = await blobtob64(ablob);
 
-        let iresponse = await fetch(infourl);
-        if (!iresponse.ok) throw new Error("failed to fetch asset info");
+            let iresponse = await fetch(infourl);
+            if (!iresponse.ok) throw new Error("failed to fetch asset info");
 
-        let info = await iresponse.json();
+            let info = await iresponse.json();
 
-        let pack = {
-            title: info.Name,
-            description: info.Description,
-            creator: { name: info.Creator.Name, userid: info.Creator.Id },
-            created: info.Created,
-            updated: info.Updated,
-            assetid: info.AssetId,
-            asset: base64,
-        };
+            let pack = {
+                title: info.Name,
+                description: info.Description,
+                creator: { name: info.Creator.Name, userid: info.Creator.Id },
+                created: info.Created,
+                updated: info.Updated,
+                assetid: info.AssetId,
+                asset: base64,
+                version: latest
+            };
 
-        let blob = new Blob([JSON.stringify(pack, null, 2)], {
-            type: "application/json",
-        });
+            let blob = new Blob([JSON.stringify(pack, null, 2)], {
+                type: "application/json",
+            });
 
-        //i use this way too much 💔
-        let link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `${info.AssetId || "model"}.rbxpack`;
-        link.click();
-        URL.revokeObjectURL(link.href);
-    } catch (err) {
-        console.error(err);
-        alert(`err: ${err.message}`);
+            //i use this way too much 💔
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `${info.AssetId || "model"}.rbxpack`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+        } catch (err) {
+            console.error(err);
+            alert(`err: ${err.message}`);
+        }
+    } else {
+
     }
 }

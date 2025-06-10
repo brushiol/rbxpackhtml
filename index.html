@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>rbxpack creator</title>
+    <title>read/write .rbxpack</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
 </head>
 <body>
+    <label id="ficont" hidden>
+        rbxpack file:
+        <input id="finp"
+               type="text"
+               accept=".rbxpack" />
+    </label>
     <label>
         asset id:
         <input id="assetid"
@@ -29,11 +35,11 @@
                style="width:300px;" />
     </label>
     <br /><br />
-    <button id="submit" onclick="enter()">generate file</button>
+    <button id="submit" onclick="enter()">submit</button>
+    <br /><br />
     <label>
         <input id="switch" type="checkbox" />
         read file
     </label>
-    <br /><br />
 </body>
 </html>
