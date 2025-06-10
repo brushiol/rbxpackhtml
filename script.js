@@ -27,7 +27,7 @@ function hide(elt, visible, parent) {
         ["visible"]: "block",
         ["hidden"]: "none",
     }
-    let targ = parent ? elt.parentElement : elt
+    let targ = (parent==true) & elt.parentElement || elt
     targ.style.visibility = visible
     let brdivider = document.querySelector(`br[for="${elt.getAttribute("name")}"]`)
     if (brdivider) {
