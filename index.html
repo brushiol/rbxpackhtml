@@ -6,12 +6,6 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <label style="visibility:hidden">
-        rbxpack file:
-        <input id="finp"
-               type="text"
-               accept=".rbxpack" />
-    </label>
     <label>
         asset id:
         <input id="assetid"
@@ -35,12 +29,19 @@
                style="width:300px;" />
     </label>
     <br /><br />
+    <label style="visibility:hidden">
+        rbxpack file:
+        <input id="finp"
+               type="text"
+               accept=".rbxpack" />
+    </label>
+    <br /><br />
     <button id="submit" onclick="enter()">submit</button>
     <br /><br />
     <label>
         read file:
         <input id="switch"
-               type="checkbox"/>
+               type="checkbox" />
     </label>
     <script src="script.js"></script>
 </body>
