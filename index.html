@@ -1,40 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>rbxpack creator</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
-  </head>
-  <body>
+</head>
+<body>
     <label>
-      asset id:
-      <input
-        id="assetid"
-        type="text"
-        placeholder="ex. 1818"
-      />
+        asset id:
+        <input id="assetid"
+               type="text"
+               placeholder="ex. 1818" />
     </label>
-    <br/><br/>
+    <br /><br />
     <label>
-      api key: 
-      <input
-        id="apikey"
-        type="text"
-        placeholder="Open Cloud API key"
-      />
-      <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
+        api key:
+        <input id="apikey"
+               type="text"
+               placeholder="Open Cloud API key" />
+        <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
     </label>
-    <br/><br/>
+    <br /><br />
     <label>
-      proxy:
-      <input
-        id="proxy"
-        type="text"
-        placeholder="ex. roproxy.com, leave blank for roblox.com"
-        style="width:300px;"
-      />
+        proxy:
+        <input id="proxy"
+               type="text"
+               placeholder="ex. roproxy.com, leave blank for roblox.com"
+               style="width:300px;" />
     </label>
-    <br/><br/>
-    <button id="submit" onclick="generate()">generate file</button>
-  </body>
+    <br /><br />
+    <button id="submit" onclick="enter()">generate file</button>
+    <label>
+        <input id="switch" type="checkbox" />
+        read file
+    </label>
+    <br /><br />
+</body>
 </html>
