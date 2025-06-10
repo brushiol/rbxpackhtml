@@ -19,6 +19,7 @@ rwclicked()
 rw.addEventListener("click",rwclicked)
 
 function hide(elt, visible, parent) { 
+    if (!elt) return
     let disbool = {
         [true]: "block",
         [false]: "none",
