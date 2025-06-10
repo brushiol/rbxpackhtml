@@ -34,10 +34,10 @@ function hide(elt, visible, parent) {
         targ = elt
     }
     targ.style.visibility = visible
-    let brdivider = document.querySelector(`br[for="${elt.getAttribute("name")}"]`)
+    /*let brdivider = document.querySelector(`br[for="${elt.getAttribute("name")}"]`)
     if (brdivider) {
         brdivider.style.display = disbool[visible]
-    }
+    }*/
 }
 function blobtob64(blob) { //didnt make this
     return new Promise((resolve, reject) => {
