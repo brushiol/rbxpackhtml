@@ -7,11 +7,17 @@
 </head>
 <body>
     <label>
+        read file:
+        <input id="switch"
+               type="checkbox" />
+        <br /><br />
+    </label>
+    <label>
         asset id:
         <input name="assetid"
                type="text"
                placeholder="ex. 1818" />
-        <br/>
+        <br /><br />
     </label>
     <label>
         api key:
@@ -19,7 +25,7 @@
                type="text"
                placeholder="Open Cloud API key" />
         <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
-        <br/>
+        <br /><br />
     </label>
     <label>
         proxy:
@@ -27,22 +33,16 @@
                type="text"
                placeholder="ex. roproxy.com, leave blank for roblox.com"
                style="width:300px;" />
-        <br/>
+        <br /><br />
     </label>
     <label style="display: none">
-        rbxpack file:
         <input name="finp"
-               type="text"
+               type="file"
                accept=".rbxpack" />
-        <br/>
+        <br /><br />
     </label>
     <button id="submit" onclick="enter()">submit</button>
-    <br />
-    <label>
-        read file:
-        <input id="switch"
-               type="checkbox" />
-    </label>
+    <br /><br />
     <script src="script.js"></script>
 </body>
 </html>

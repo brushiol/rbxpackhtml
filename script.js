@@ -8,29 +8,27 @@ let latest = "0.3"
 
 document.documentElement.style.fontFamily = 'Comic Sans MS';
 
-function rwclicked(){
+function rwclicked() {
+    let disbool = {
+        [true]: "none",
+        [false]: "block",
+    }
     let chosen = rw.checked;
-    hide(idtext, chosen, true);
-    hide(aktext, chosen, true);
-    hide(prox, chosen, true);
-    hide(finp, !chosen, true);
+    hide(idtext[0], disbool[chosen], true);
+    hide(aktext[0], disbool[chosen], true);
+    hide(prox[0], disbool[chosen], true);
+    hide(finp[0], disbool[!chosen], true);
 }
 rwclicked()
 rw.addEventListener("click",rwclicked)
 
 function hide(elt, visible, parent) { 
-    if (elt && elt.nodeType === Node.ELEMENT_NODE) {
-        let disbool = {
-            [true]: "block",
-            [false]: "none",
-        }
+    if (elt) {
         let targ = elt
         if (parent && elt.parentElement) {
             targ = elt.parentElement
         }
-        if (targ.style) {
-            targ.style.display = disbool[visible]
-        }
+        targ.style.display = visible
     }
 }
 function blobtob64(blob) { //didnt make this
