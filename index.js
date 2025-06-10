@@ -6,7 +6,7 @@ let rw = document.getElementById("switch");
 let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
 let latest = "0.3"
-rw.addEventListener("click", function () {
+function rwclicked() {
     console.log(true)
     let chosen = rw.checked;
     toggleAttribute(idtext, "hidden", chosen)
@@ -14,11 +14,12 @@ rw.addEventListener("click", function () {
     toggleAttribute(prox, "hidden", chosen)
     toggleAttribute(ficont, "hidden", chosen)
     /*if (chosen) {
-
+ 
     } else {
-
+ 
     }*/
-});
+}
+
 function toggleAttribute(elt, name, bool) {
     if (bool) {
         if (!elt.getAttribute(name)) {
