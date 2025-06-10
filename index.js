@@ -1,4 +1,3 @@
-let latest = "0.3"
 let idtext = document.getElementById("assetid");
 let aktext = document.getElementById("apikey");
 let prox = document.getElementById("proxy");
@@ -6,25 +5,29 @@ let submit = document.getElementById("submit");
 let rw = document.getElementById("switch");
 let ficont = document.getElementById("ficont");
 let finp = document.getElementById("finp");
-document.documentElement.style.fontFamily = 'Comic Sans MS';
+let latest = "0.3"
 rw.addEventListener("click", function () {
     console.log(true)
     let chosen = rw.checked;
-    toggleAttribute(idtext, "hidden")
-    toggleAttribute(aktext, "hidden")
-    toggleAttribute(prox, "hidden")
-    toggleAttribute(ficont, "hidden")
+    toggleAttribute(idtext, "hidden", chosen)
+    toggleAttribute(aktext, "hidden", chosen)
+    toggleAttribute(prox, "hidden", chosen)
+    toggleAttribute(ficont, "hidden", chosen)
     /*if (chosen) {
 
     } else {
 
     }*/
 });
-function toggleAttribute(elt,name) {
-    if (elt.getAttribute(name)) {
-        elt.removeAttribute()
+function toggleAttribute(elt, name, bool) {
+    if (bool) {
+        if (!elt.getAttribute(name)) {
+            elt.setAttribute(name, "")
+        }
     } else {
-        elt.setAttribute(name, "")
+        if (elt.getAttribute(name)) {
+            elt.removeAttribute()
+        }
     }
 }
 function blobtob64(blob) { //didnt make this
