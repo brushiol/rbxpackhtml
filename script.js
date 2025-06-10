@@ -19,16 +19,19 @@ rwclicked()
 rw.addEventListener("click",rwclicked)
 
 function hide(elt, visible, parent) { 
-    if (!elt) return
-    let disbool = {
-        [true]: "block",
-        [false]: "none",
+    if (elt && elt.nodeType === Node.ELEMENT_NODE) {
+        let disbool = {
+            [true]: "block",
+            [false]: "none",
+        }
+        let targ = elt
+        if (parent && elt.parentElement) {
+            targ = elt.parentElement
+        }
+        if (targ.style) {
+            targ.style.display = disbool[visible]
+        }
     }
-    let targ = elt 
-    if (parent && elt.parentElement) {
-        targ = elt.parentElement
-    }
-    targ.style.display = disbool[visible]
 }
 function blobtob64(blob) { //didnt make this
     return new Promise((resolve, reject) => {
