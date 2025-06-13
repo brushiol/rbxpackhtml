@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>read/write .rbxpack</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
-</head>
-<body>
+  </head>
+  <body>
     <label>
-        read file:
-        <input id="switch"
-               type="checkbox" />
-        <br /><br />
+      read file:
+      <input id="switch" type="checkbox" />
+      <br /><br />
     </label>
     <label>
-        asset id:
-        <input name="assetid"
-               type="text"
-               placeholder="ex. 1818" />
-        <br /><br />
+      asset id:
+      <input id="assetid" type="text" placeholder="ex. 1818" />
+      <br /><br />
     </label>
     <label>
-        api key:
-        <input name="apikey"
-               type="text"
-               placeholder="Open Cloud API key" />
-        <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
-        <br /><br />
+      api key:
+      <input id="apikey" type="text" placeholder="Open Cloud API key" />
+      <a href="https://create.roblox.com/docs/cloud/auth/api-keys">(?)</a>
+      <br /><br />
     </label>
     <label>
-        proxy:
-        <input name="proxy"
-               type="text"
-               placeholder="ex. roproxy.com, leave blank for roblox.com"
-               style="width:300px;" />
-        <br /><br />
+      proxy:
+      <input
+        id="proxy"
+        type="text"
+        placeholder="ex. roproxy.com, leave blank for roblox.com"
+        style="width:300px;"
+      />
+      <br /><br />
     </label>
     <label style="display: none">
-        <input name="finp"
-               type="file"
-               accept=".rbxpack" />
-        <br /><br />
+      <input id="finp" type="file" accept=".rbxpack" />
+      <br /><br />
     </label>
+    <label style="display: none">
+      <button id="download">install extracted asset</button>
+    </label>
+    <hr />
     <button id="submit" onclick="enter()">submit</button>
-    <br /><br />
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
